@@ -134,7 +134,9 @@ a {
   border-radius: 2px;
   position: fixed;
   right: 2rem;
-  top: 4rem;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
 }
 .title {
   font-size: 1rem;
