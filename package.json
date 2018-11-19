@@ -1,13 +1,23 @@
 {
   "name": "vue-navigation",
   "version": "0.1.0",
-  "private": true,
+  "description": "A vue tool to generate a navigation for a web page",
+  "keywords": [
+    "navigation",
+    "导航",
+    "vue"
+  ],
+  "author": "lushg-tcxg@qq.com",
+  "license": "MIT",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "simple-vue-tree": "^1.1.3",
+    "uuid": "^3.3.2",
     "vue": "^2.5.17"
   },
   "devDependencies": {
@@ -28,7 +38,11 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-unused-vars": "off",
+      "vue/no-unused-vars": "off",
+      "no-console": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
