@@ -1168,6 +1168,13 @@ babel-plugin-dynamic-import-node@^2.2.0:
   dependencies:
     object.assign "^4.1.0"
 
+babel-plugin-import@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.npmjs.org/babel-plugin-import/-/babel-plugin-import-1.11.0.tgz#78ac908e6b225206babb734e19eae5f78d6d1035"
+  dependencies:
+    "@babel/helper-module-imports" "^7.0.0"
+    "@babel/runtime" "^7.0.0"
+
 babel-plugin-transform-vue-jsx@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/babel-plugin-transform-vue-jsx/-/babel-plugin-transform-vue-jsx-4.0.1.tgz#2c8bddce87a6ef09eaa59869ff1bfbeeafc5f88d"
@@ -5732,10 +5739,11 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
-simple-vue-tree@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.npmjs.org/simple-vue-tree/-/simple-vue-tree-1.1.3.tgz#e0c90b191be04558e6e2ed5b60c8118a0a85c3e9"
+simple-vue-tree@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.npmjs.org/simple-vue-tree/-/simple-vue-tree-1.1.6.tgz#814a12cc4828655e5c15707528370f5d1ced2827"
   dependencies:
+    babel-plugin-import "^1.11.0"
     iview "^3.1.2"
     vue "^2.5.17"
 
