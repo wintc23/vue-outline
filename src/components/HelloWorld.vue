@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <div v-navigate="{
+    <div v-outline="{
       callback: refreshNavTree,
       selectors: ['h1,ul', 'li,h2']
     }" class="content">

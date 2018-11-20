@@ -3,9 +3,9 @@ import App from './App.vue'
 import 'simple-vue-tree'
 import 'simple-vue-tree/dist/lib/simple-tree.css'
 
-import navigate from '@/directives/navigate'
+import outline from '@/directives/outline'
 
-Vue.directive('navigate', navigate)
+Vue.directive('outline', outline)
 
 Vue.config.productionTip = false
 
