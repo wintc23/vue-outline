@@ -4,8 +4,11 @@
   "description": "A vue tool to generate a navigation for a web page",
   "keywords": [
     "navigation",
+    "outline",
+    "vue",
+    "vuejs",
     "导航",
-    "vue"
+    "大纲"
   ],
   "author": "Lushenggang <lushg-tcxg@qq.com>",
   "repository": {
