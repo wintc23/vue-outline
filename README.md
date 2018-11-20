@@ -94,8 +94,11 @@ jumpToAnchor (id) {
 完整示例例子请查看<a href="./src/components/HelloWOrld.vue">demo</a>。  
 关于更多<a href="https://www.npmjs.com/package/simple-vue-tree">simple-tree</a>具体细节可以查看一下这个组件的<a href="https://www.npmjs.com/package/simple-vue-tree">文档</a>。
 
+如果在使用过程中您有任何问题，请可以通过<a href="https://github.com/Lushenggang/vue-outline/issues">issue</a>提出，我会尽快回复。
+你可以从github克隆本项目，运行查看例子和源代码，如果你发现bug或者在此基础上开发了优化功能，欢迎通过PR合并到本仓库。
+
 ------
-你可以从github克隆本项目，运行查看例子。
+项目安装：
 
 ## Project setup
 ```
