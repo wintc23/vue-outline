@@ -51,7 +51,6 @@ function clearLinkElement (dom) {
 
 export default {
   bind (el, binding, vNode) {
-    console.log('bind')
     el.__navigationGenerateFunction = () => {
       if (el.__generating) return
       let selectors = binding.value.selectors || ['h1', 'h2']
