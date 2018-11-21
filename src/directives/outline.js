@@ -11,33 +11,44 @@ function createLinkElement (dom) {
   return id
 }
 
-function generateNavTree (dom, selectors, exceptSelector, list) {
+function generateNavTree (dom, selectors, exceptSelector) {
   clearLinkElement(dom)
+  let list = []
+  if (exceptSelector) {
+    let exceptList = dom.querySelectorAll(exceptSelector)
+    exceptList.forEach(element => {
+      element.__nav_except = true
+    })
+  }
+  for (let idx in selectors) {
+    let elementList = dom.querySelectorAll(selectors[idx])
+    elementList.forEach(element => {
+      if (element.__nav_except || element.offsetParent === null) return
+      element.__nav_level = idx
+    })
+  }
   let selector = selectors.join(',')
   let domList = dom.querySelectorAll(selector)
-  let expectList = []
-  if (exceptSelector) {
-    expectList = dom.querySelectorAll(exceptSelector)
-    expectList = Array.from(expectList)
-  }
   for (let element of domList) {
-    if (expectList.includes(element)) continue
-    let pushList = list
-    for (let idx in selectors) {
-      let elementList = dom.querySelectorAll(selectors[idx])
-      elementList = Array.from(elementList)
-      if (elementList.includes(element)) {
-        pushList.push({
-          title: element.innerText,
-          children: [],
-          id: createLinkElement(element)
-        })
-      } else {
-        if (!pushList.length) break
-        pushList = pushList[pushList.length - 1].children
-      }
+    if (!element.__nav_level) {
+      delete element.__nav_except
+      continue
     }
+    let pushList = list
+    while (element.__nav_level > 0) {
+      pushList = pushList.length ? pushList[pushList.length - 1].children : null
+      if (!pushList) break
+      element.__nav_level--
+    }
+    let data = {
+      title: element.textContent,
+      children: [],
+      id: createLinkElement(element)
+    }
+    pushList && pushList.push(data)
+    delete element.__nav_level
   }
+  return list
 }
 
 function clearLinkElement (dom) {
@@ -55,12 +66,14 @@ export default {
       if (el.__generating) return
       let selectors = binding.value.selectors || ['h1', 'h2']
       let exceptSelector = binding.value.exceptSelector
-      el.__generating = true
-      let list = []
-      generateNavTree(el, selectors, exceptSelector, list)
-      binding.value.callback(list)
       vNode.context.$nextTick(() => {
-        delete el.__generating
+        if (el.__generating) return
+        el.__generating = true
+        let list = generateNavTree(el, selectors, exceptSelector)
+        binding.value.callback(list)
+        vNode.context.$nextTick(() => {
+          delete el.__generating
+        })
       })
     }
   },
@@ -68,7 +81,6 @@ export default {
     el.__navigationGenerateFunction && el.__navigationGenerateFunction()
   },
   componentUpdated (el, binding, vNode) {
-    console.log('updated')
     el.__navigationGenerateFunction && el.__navigationGenerateFunction()
   },
   unbind (el, binding, vNode) {
