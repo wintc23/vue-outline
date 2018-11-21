@@ -28,7 +28,7 @@
     "build": "vue-cli-service build",
     "build-bundle": "vue-cli-service build --target lib --name vue-outline ./src/directives/index.js",
     "lint": "vue-cli-service lint",
-    "prepublishOnly": "npm run build-bundle"
+    "prepublishOnly": "git push && npm run build-bundle"
   },
   "dependencies": {
     "simple-vue-tree": "^1.1.6",
