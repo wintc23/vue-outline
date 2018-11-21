@@ -1,2 +1,5 @@
+# v1.0.2
+- 修改导航标题的属性获取，之前通过innerText获取导航元素的内容，现在通过textContent获取，更加高效。
+
 # v1.0.0
 - 支持基础功能，详细见<a href="./README.md">Readme</a>。
