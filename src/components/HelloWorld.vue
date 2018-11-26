@@ -31,7 +31,7 @@
     </div>
     <div class="navigation">
       <div class="title">导航目录</div>
-      <simple-tree
+      <outline-tree
         :treeData="navTree"
         :expand="false"
         class="tree">
@@ -42,7 +42,7 @@
             {{ data.title }}
           </div>
         </div>
-      </simple-tree>
+      </outline-tree>
     </div>
   </div>
 </template>

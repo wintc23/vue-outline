@@ -5739,13 +5739,14 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
-simple-vue-tree@^1.1.6:
-  version "1.1.6"
-  resolved "https://registry.npmjs.org/simple-vue-tree/-/simple-vue-tree-1.1.6.tgz#814a12cc4828655e5c15707528370f5d1ced2827"
+simple-vue-tree@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/simple-vue-tree/-/simple-vue-tree-2.0.0.tgz#19ad97dfe460d9a5e7c43c801c4a3ecedbf7c50d"
   dependencies:
     babel-plugin-import "^1.11.0"
     iview "^3.1.2"
     vue "^2.5.17"
+    vue-router "^3.0.2"
 
 slash@^1.0.0:
   version "1.0.0"
@@ -6445,8 +6446,8 @@ uuid@^3.0.1, uuid@^3.3.2:
   resolved "https://registry.npmjs.org/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 
 v-click-outside-x@^3.5.0:
-  version "3.5.3"
-  resolved "https://registry.npmjs.org/v-click-outside-x/-/v-click-outside-x-3.5.3.tgz#4f2bda66ed8091011a4aa97717ef1a3ebebc416c"
+  version "3.5.5"
+  resolved "https://registry.npmjs.org/v-click-outside-x/-/v-click-outside-x-3.5.5.tgz#a28a841b3c610eeec85cac3d63b3f94cbf87047f"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"
@@ -6512,6 +6513,10 @@ vue-loader@^15.4.2:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-router@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.npmjs.org/vue-router/-/vue-router-3.0.2.tgz#dedc67afe6c4e2bc25682c8b1c2a8c0d7c7e56be"
 
 vue-style-loader@^4.1.0:
   version "4.1.2"
