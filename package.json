@@ -18,7 +18,7 @@
   "license": "MIT",
   "main": "dist/vue-outline.common.js",
   "unpkg": "dist/vue-outline.min.js",
-  "module": "dist.vue-outline.esm.js",
+  "module": "dist/vue-outline.esm.js",
   "private": false,
   "files": [
     "dist"
