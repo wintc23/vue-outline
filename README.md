@@ -67,9 +67,9 @@ refreshNavTree (treeData) {
 }
 ```
 ## 大纲导航数据的展示
-你可以选择一个树形组件来显示大纲导航数据，不过vue-outline还是内置了一个树形组件<a href="https://www.npmjs.com/package/simple-vue-tree">simple-tree</a>，你可以直接使用：
+你可以选择一个树形组件来显示大纲导航数据，不过vue-outline还是内置了一个树形组件<a href="https://www.npmjs.com/package/simple-vue-tree">simple-tree</a>，在本组件内被全局注册为outline-tree，你可以直接使用：
 ```
-<simple-tree
+<outline-tree
   :treeData="navTree"
   :expand="false"
   class="tree">
@@ -80,7 +80,7 @@ refreshNavTree (treeData) {
       {{ data.title }}
     </div>
   </div>
-</simple-tree>
+</outline-tree>
 
 // ···
 jumpToAnchor (id) {
