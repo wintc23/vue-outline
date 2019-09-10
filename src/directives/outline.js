@@ -77,13 +77,13 @@ export default {
       })
     }
     el.__mutationObverser = new MutationObserver((mutationList, observer) => {
-      
+      console.log(mutationList, '~~~~~')
       el.__navigationGenerateFunction && el.__navigationGenerateFunction()
     })
   },
   inserted (el, binding, vNode) {
     el.__navigationGenerateFunction && el.__navigationGenerateFunction()
-    el.__mutationObverser.observe(el, {subtree: true, childList: true})
+    el.__mutationObverser.observe(el, { subtree: true, childList: true })
   },
   unbind (el, binding, vNode) {
     clearLinkElement()
