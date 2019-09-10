@@ -3,7 +3,7 @@ import uuidv4 from 'uuid/v4'
 let ATTR_NAME = 'navigation_anchor_by_lushg_QAQ_'
 
 function createLinkElement (dom) {
-  let id = uuidv4()
+  let id = `id${uuidv4().replace(/-/g, '')}`
   let element = document.createElement('a')
   element.setAttribute('id', id)
   element.setAttribute(ATTR_NAME, true)
@@ -76,17 +76,23 @@ export default {
         })
       })
     }
+    el.__mutationObverser = new MutationObserver((mutationList, observer) => {
+      
+      el.__navigationGenerateFunction && el.__navigationGenerateFunction()
+    })
   },
   inserted (el, binding, vNode) {
     el.__navigationGenerateFunction && el.__navigationGenerateFunction()
-  },
-  componentUpdated (el, binding, vNode) {
-    el.__navigationGenerateFunction && el.__navigationGenerateFunction()
+    el.__mutationObverser.observe(el, {subtree: true, childList: true})
   },
   unbind (el, binding, vNode) {
     clearLinkElement()
     if (el.__navigationGenerateFunction) {
       delete el.__navigationGenerateFunction
+    }
+    if (el.__mutationObverser) {
+      el.__mutationObverser.takeRecords()
+      el.__mutationObverser.disconnect()
     }
   }
 }
