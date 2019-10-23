@@ -29,7 +29,6 @@ function generateNavTree (dom, selectors, exceptSelector) {
   }
   let selector = selectors.join(',')
   let domList = dom.querySelectorAll(selector)
-  dom.__mutationObverser && dom.__mutationObverser.disconnect()
   for (let element of domList) {
     if (!element.__nav_level) {
       delete element.__nav_except
@@ -65,17 +64,15 @@ function clearLinkElement (dom) {
 export default {
   bind (el, binding, vNode) {
     el.__navigationGenerateFunction = () => {
-      if (el.__generating) return
       let selectors = binding.value.selectors || ['h1', 'h2']
       let exceptSelector = binding.value.exceptSelector
       vNode.context.$nextTick(() => {
-        if (el.__generating) return
-        el.__generating = true
+        // 停止观察
+        el.__mutationObverser && el.__mutationObverser.disconnect()
         let list = generateNavTree(el, selectors, exceptSelector)
         binding.value.callback(list)
-        vNode.context.$nextTick(() => {
-          delete el.__generating
-        })
+        // 重新观察
+        el.__mutationObverser && el.__mutationObverser.observe(el, { subtree: true, childList: true })
       })
     }
     let MutationObserver = window.MutationObserver ||
