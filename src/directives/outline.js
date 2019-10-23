@@ -29,6 +29,7 @@ function generateNavTree (dom, selectors, exceptSelector) {
   }
   let selector = selectors.join(',')
   let domList = dom.querySelectorAll(selector)
+  dom.__mutationObverser && dom.__mutationObverser.disconnect()
   for (let element of domList) {
     if (!element.__nav_level) {
       delete element.__nav_except
@@ -48,6 +49,7 @@ function generateNavTree (dom, selectors, exceptSelector) {
     pushList && pushList.push(data)
     delete element.__nav_level
   }
+  dom.__mutationObverser && dom.__mutationObverser.observe(dom, { subtree: true, childList: true })
   return list
 }
 
@@ -76,14 +78,14 @@ export default {
         })
       })
     }
-    el.__mutationObverser = new MutationObserver((mutationList, observer) => {
-      console.log(mutationList, '~~~~~')
+    let MutationObserver = window.MutationObserver ||
+    window.WebKitMutationObserver ||
+    window.MozMutationObserver;
+    el.__mutationObverser = new MutationObserver(() => {
       el.__navigationGenerateFunction && el.__navigationGenerateFunction()
     })
-  },
-  inserted (el, binding, vNode) {
-    el.__navigationGenerateFunction && el.__navigationGenerateFunction()
     el.__mutationObverser.observe(el, { subtree: true, childList: true })
+    el.__navigationGenerateFunction && el.__navigationGenerateFunction()
   },
   unbind (el, binding, vNode) {
     clearLinkElement()
