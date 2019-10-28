@@ -1,6 +1,6 @@
 {
   "name": "vue-outline",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A vue tool to generate a navigation for a web page",
   "keywords": [
     "navigation",
