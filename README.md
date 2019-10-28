@@ -21,17 +21,23 @@ Vue.use(outline)
 ```
 
 通过本步骤引入插件，已经完成了两件事情：
-1. 为Vue全局植入了一个指令v-outline用于监听dom树变化并提取设置的关键标题。
-2. 为Vue全局植入了一个树组件outline-tree，可用来展示提取的目录。
+
+- 为Vue全局植入了一个指令v-outline用于监听dom树变化并提取设置的关键标题。
+
+- 为Vue全局植入了一个树组件outline-tree，可用来展示提取的目录。
 
 当然你可以自定义命令和树组件的名字，只需要在Vue.use的时候传入第二个参数：
+
 ```js
 Vue.use(outline, { directiveName: 'custom-outline-name', treeName: 'custom-tree-name' })
 ```
+
 这样就可以使用指令v-custom-outline-name和组件custom-tree-name
 
-# 使用
-1. 使用指令v-outline监听某个dom以及其后代元素，生成树形结构的目录数据:
+## 使用
+
+### 使用指令v-outline监听某个dom以及其后代元素，生成树形结构的目录数据:
+
 ```html
 <template>
   <div
@@ -74,7 +80,7 @@ export default {
 | selectors | Array | 一个选择器的列表 | 否 | ['h1', 'h2'] |
 | exceptSelector | String | 排除掉的选择器 | 否 | 无 |
 
-2. 展示目录
+### 展示目录
 
 你可以选择你喜欢的树组件来展示目录，不过本插件还是内置了一个小巧的树形组件，默认注册为outline-tree,你可以先像下面这样使用树组件：
 
