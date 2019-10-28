@@ -3,7 +3,7 @@
 
 一个Vue开发小工具，使用非常简单，你可以使用它来提取页面中一篇文章的标题，并生成目录树。
 demo效果：
-<img src="./src/assets/sample.png"/>
+<img src="./public/static/sample.png"/>
 
 ## 安装
 ```
