@@ -56,7 +56,8 @@
     "rules": {
       "no-unused-vars": "off",
       "vue/no-unused-vars": "off",
-      "no-console": "off"
+      "no-console": "off",
+      "no-irregular-whitespace": 0
     },
     "parserOptions": {
       "parser": "babel-eslint"

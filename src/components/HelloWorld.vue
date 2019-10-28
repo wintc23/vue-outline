@@ -1,137 +1,12 @@
 <template>
-  <div class="hello">
+  <div class="example">
     <div v-outline="{
       callback: refreshNavTree,
-      selectors: ['h1', 'h2'],
+      selectors: ['h2', 'h3'],
       exceptSelector: '[un-nav]'
     }" class="content">
       <div>
-        <h1>一级标题1</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题2</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题3</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题4</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题5</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题7</h1>
-        <h1>一级标题1</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题2</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题3</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题4</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题5</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题7</h1>
-        <h1>一级标题1</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题2</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题3</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题4</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题5</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题7</h1>
-        <h1>一级标题1</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题2</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题3</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题4</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题5</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题7</h1>
-        <h1>一级标题1</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题2</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题3</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题4</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题5</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题7</h1>
-        <h1>一级标题1</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题2</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题3</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题4</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题5</h1>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h2>二级标题</h2>
-        <div :style="{ margin: '.5rem 2rem' }">内容不出现在导航</div>
-        <h1>一级标题7</h1>
+        <TestArticle></TestArticle>
       </div>
     </div>
     <div class="navigation">
@@ -153,8 +28,13 @@
 </template>
 
 <script>
+import TestArticle from './TestArticle'
+
 export default {
   name: 'HelloWorld',
+  components: {
+    TestArticle
+  },
   props: {
     msg: String
   },
@@ -178,38 +58,22 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-
-.hello {
+.example {
   display: flex;
 }
+
 .content {
-  flex: auto;
-  overflow: auto;
+  border: 1px solid #3361d8;
+  margin: 0 20px;
+  padding: 40px;
+  border-radius: 4px;
 }
+
 .navigation {
-  width: 12rem;
-  border: 1px solid #a2a2a2;
+  width: 16rem;
+  flex-shrink: 0;
   padding: .5rem;
   border-radius: 2px;
-  position: fixed;
-  right: 2rem;
-  top: 0;
-  bottom: 0;
-  overflow: auto;
 }
 .title {
   font-size: 1rem;
