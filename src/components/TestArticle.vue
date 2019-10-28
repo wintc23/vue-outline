@@ -1,9 +1,8 @@
 <template>
   <div class="article">
-    <div>
-      <p>
-        源于一次面试，一起面试的同事问面试者的一个问题：数组遍历有哪些方式？想来数组操作是平时开发中的常用技能，面试者吞吞吐吐大概就说出了两种方式吧，最后就淘汰掉啦（面试者是个很认真的妹纸，面试都在简单做一些笔记，不过基础确实有些困难～）。
-      </p>
+
+    <div ref="article">
+      本文为测试导航生成文章，内容摘自<a href="http://wintc.top/article/8">木马.tc个人博客</a>
       <p>
         对于＂数组遍历＂这个问题，其实答案很宽泛，关键在于你能不能列举出一定数量的方法以及描述它们之间的区别。本文即介绍一下数组的基本遍历操作和高阶函数。
       </p>
@@ -425,6 +424,25 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  mounted () {
+    this.timer = setInterval(() => {
+      let div = document.createElement('h2')
+      div.innerText = '动态插入的h2标题'
+      let div2 = document.createElement('h2')
+      div2.setAttribute('un-nav', '')
+      div2.innerText = '动态插入的h2标签，不会出现在导航栏，它被排除了'
+      this.$refs.article.appendChild(div)
+      this.$refs.article.appendChild(div2)
+    }, 3000)
+  },
+  beforeDestroy () {
+    this.timer && clearInterval(this.timer)
+  }
+}
+</script>
 
 <style scoped>
 .article {

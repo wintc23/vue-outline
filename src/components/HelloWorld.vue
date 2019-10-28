@@ -11,11 +11,8 @@
     </div>
     <div class="navigation">
       <div class="title">导航目录</div>
-      <outline-tree
-        :treeData="navTree"
-        :expand="false"
-        class="tree">
-        <div slot-scope="{ data, parentData }">
+      <outline-tree :treeData="navTree" class="tree">
+        <div slot-scope="{ data, parentData, level }">
           <div
             class="node-render-content"
             @click.stop="jumpToAnchor(data.id)">
@@ -60,6 +57,7 @@ export default {
 <style scoped>
 .example {
   display: flex;
+  height: calc(100vh - 30px);
 }
 
 .content {
@@ -67,6 +65,8 @@ export default {
   margin: 0 20px;
   padding: 40px;
   border-radius: 4px;
+  flex: auto;
+  overflow: auto;
 }
 
 .navigation {
@@ -74,6 +74,8 @@ export default {
   flex-shrink: 0;
   padding: .5rem;
   border-radius: 2px;
+  text-align: left;
+  overflow: auto;
 }
 .title {
   font-size: 1rem;

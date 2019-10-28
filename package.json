@@ -26,12 +26,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --target lib --name vue-outline ./src/directives/index.js",
+    "build-bundle": "vue-cli-service build --target lib --name vue-outline ./src/index.js",
     "lint": "vue-cli-service lint",
     "prepublishOnly": "git push && npm run build-bundle"
   },
   "dependencies": {
-    "simple-vue-tree": "^2.0.0",
     "uuid": "^3.3.2",
     "vue": "^2.5.17"
   },

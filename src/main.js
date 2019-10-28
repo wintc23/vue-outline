@@ -1,11 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
-import 'simple-vue-tree'
-import 'simple-vue-tree/dist/lib/simple-tree.css'
-
-import { outline } from '@/directives'
-
-Vue.directive('outline', outline)
+import outline from './index'
+Vue.use(outline)
 
 Vue.config.productionTip = false
 
