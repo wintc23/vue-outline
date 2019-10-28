@@ -1,10 +1,11 @@
 <template>
   <div class="example">
-    <div v-outline="{
-      callback: refreshNavTree,
-      selectors: ['h2', 'h3'],
-      exceptSelector: '[un-nav]'
-    }" class="content">
+    <div
+      v-outline="{
+        callback: refreshNavTree,
+        selectors: ['h2', 'h3'],
+        exceptSelector: '[un-nav]'
+      }" class="content">
       <div>
         <TestArticle></TestArticle>
       </div>
