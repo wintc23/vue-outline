@@ -3,10 +3,10 @@
     <div
       v-outline="{
         callback: refreshNavTree,
-        selectors: ['h1', 'h2', 'h3'],
+        selectors: ['h2', 'h3', 'h4'],
         exceptSelector: '[un-nav]'
       }" class="content">
-      <div>
+      <div ref="editor">
         <TestArticle></TestArticle>
       </div>
     </div>
@@ -16,7 +16,7 @@
         <div slot-scope="{ data, parentData, level }">
           <div
             class="node-render-content"
-            @click.stop="jumpToAnchor(data.id)">
+            @click.stop="jumpToAnchor(data.el)">
             {{ data.title }}
           </div>
         </div>
@@ -45,11 +45,8 @@ export default {
     refreshNavTree (treeData) {
       this.navTree = treeData
     },
-    jumpToAnchor (id) {
-      let element = document.getElementById(id)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
-      }
+    jumpToAnchor (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
     }
   }
 }

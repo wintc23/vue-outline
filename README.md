@@ -90,7 +90,7 @@ export default {
     <div slot-scope="{ data, parentData, level }">
       <div
         class="node-render-content"
-        @click.stop="jumpToAnchor(data.id)">
+        @click.stop="jumpToAnchor(data.el)">
         {{ data.title }}
       </div>
     </div>
@@ -101,12 +101,8 @@ export default {
 ```js
 export default {
   methods: {
-    // 这个函数内部用到了id选择器，所以其实你可以不用该函数，而直接使用“html锚点”来控制跳转。
-    jumpToAnchor (id) {
-      let element = document.getElementById(id)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
-      }
+    jumpToAnchor (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
     }
   }
 }

@@ -1,18 +1,11 @@
-import uuidv4 from 'uuid/v4'
 
-let ATTR_NAME = 'navigation_anchor_by_lushg_QAQ_'
-
-function createLinkElement (dom) {
-  let id = `id${uuidv4().replace(/-/g, '')}`
-  let element = document.createElement('a')
-  element.setAttribute('id', id)
-  element.setAttribute(ATTR_NAME, true)
-  dom.parentNode.insertBefore(element, dom)
-  return id
+const OPTIONS =  {
+  subtree: true,
+  childList: true,
+  characterData: true
 }
 
 function generateNavTree (dom, selectors, exceptSelector) {
-  clearLinkElement(dom)
   let list = []
   if (exceptSelector) {
     let exceptList = dom.querySelectorAll(exceptSelector)
@@ -43,63 +36,44 @@ function generateNavTree (dom, selectors, exceptSelector) {
     let data = {
       title: element.textContent,
       children: [],
-      id: createLinkElement(element)
+      el: element
     }
     pushList && pushList.push(data)
     delete element.__nav_level
   }
-  dom.__mutationObverser && dom.__mutationObverser.observe(dom, { subtree: true, childList: true })
   return list
-}
-
-function clearLinkElement (dom) {
-  dom = dom || document
-  let domList = dom.querySelectorAll(`a[${ATTR_NAME}]`)
-  for (let idx = domList.length - 1; idx > -1; idx--) {
-    let element = domList[idx]
-    element.parentNode.removeChild(element)
-  }
 }
 
 export default {
   bind (el, binding, vNode) {
-    el.__navigationGenerateFunction = () => {
+    el.__generateNav = () => {
       let selectors = binding.value.selectors || ['h1', 'h2']
       let exceptSelector = binding.value.exceptSelector
-      vNode.context.$nextTick(() => {
-        // 停止观察
-        el.__mutationObverser && el.__mutationObverser.disconnect()
-        
-        // 找到第一个生效的选择器，开始有效选择器部分
-        let idx = selectors.findIndex(selector => {
-          let list = el.querySelectorAll(selector)
-          return !!list.length
-        })
-        selectors = idx < 0 ? selectors : selectors.slice(idx)
-
-        let list = generateNavTree(el, selectors, exceptSelector)
-        binding.value.callback(list)
-        // 重新观察
-        el.__mutationObverser && el.__mutationObverser.observe(el, { subtree: true, childList: true })
+      let idx = selectors.findIndex(selector => {
+        let list = el.querySelectorAll(selector)
+        return !!list.length
       })
+      selectors = idx < 0 ? selectors : selectors.slice(idx)
+      let list = generateNavTree(el, selectors, exceptSelector)
+      binding.value.callback(list)
     }
-    let MutationObserver = window.MutationObserver ||
-    window.WebKitMutationObserver ||
-    window.MozMutationObserver;
-    el.__mutationObverser = new MutationObserver(() => {
-      el.__navigationGenerateFunction && el.__navigationGenerateFunction()
+    let MutationObserver = window.MutationObserver
+    || window.WebKitMutationObserver
+    || window.MozMutationObserver
+    el.__observer = new MutationObserver(() => {
+      el.__generateNav && el.__generateNav()
     })
-    el.__mutationObverser.observe(el, { subtree: true, childList: true })
-    el.__navigationGenerateFunction && el.__navigationGenerateFunction()
+    el.__observer.observe(el, OPTIONS)
+    el.__generateNav && el.__generateNav()
   },
   unbind (el, binding, vNode) {
-    clearLinkElement()
-    if (el.__navigationGenerateFunction) {
-      delete el.__navigationGenerateFunction
+    if (el.__generateNav) {
+      delete el.__generateNav
     }
-    if (el.__mutationObverser) {
-      el.__mutationObverser.takeRecords()
-      el.__mutationObverser.disconnect()
+    if (el.__observer) {
+      el.__observer.takeRecords()
+      el.__observer.disconnect()
+      delete el.__observer
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "vue-outline",
-  "version": "3.0.3",
+  "version": "4.0.0",
   "description": "A vue tool to generate a navigation for a web page",
   "keywords": [
     "navigation",
@@ -33,7 +33,6 @@
     "prepublishOnly": "git push && npm run build-bundle"
   },
   "dependencies": {
-    "uuid": "^3.3.2",
     "vue": "^2.5.17"
   },
   "devDependencies": {
