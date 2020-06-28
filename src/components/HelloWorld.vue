@@ -3,7 +3,7 @@
     <div
       v-outline="{
         callback: refreshNavTree,
-        selectors: ['h2', 'h3'],
+        selectors: ['h1', 'h2', 'h3'],
         exceptSelector: '[un-nav]'
       }" class="content">
       <div>

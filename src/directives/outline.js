@@ -69,6 +69,14 @@ export default {
       vNode.context.$nextTick(() => {
         // 停止观察
         el.__mutationObverser && el.__mutationObverser.disconnect()
+        
+        // 找到第一个生效的选择器，开始有效选择器部分
+        let idx = selectors.findIndex(selector => {
+          let list = el.querySelectorAll(selector)
+          return !!list.length
+        })
+        selectors = idx < 0 ? selectors : selectors.slice(idx)
+
         let list = generateNavTree(el, selectors, exceptSelector)
         binding.value.callback(list)
         // 重新观察

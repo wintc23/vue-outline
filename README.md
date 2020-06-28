@@ -1,5 +1,5 @@
 # vue-outline
-<a href="./changeLog.md">更新日志</a>
+<a href="./changeLog.md">更新日志（2020.06.28最后更新）</a>
 
 一个Vue开发小工具，使用非常简单，你可以使用它来提取页面中一篇文章的标题，并生成目录树。
 demo效果：
@@ -77,7 +77,7 @@ export default {
 | 值 | 类型 | 说明 | 必传 | 默认值 |
 |---|---|--| --- | --- |
 | callback | Function | 接收生成的树形结构数据 | 是 | 无 |
-| selectors | Array | 一个选择器的列表 | 否 | ['h1', 'h2'] |
+| selectors | Array | 一个选择器的列表，从第一个有效的选择器（即所观察DOM下包含至少一个元素）开始，依次表示第一级标题的选择器、第二级标题的选择器 | 否 | ['h1', 'h2'] |
 | exceptSelector | String | 排除掉的选择器 | 否 | 无 |
 
 ### 展示目录
@@ -96,12 +96,12 @@ export default {
     </div>
   </outline-tree>
 </template>
-
 ```
 
 ```js
 export default {
   methods: {
+    // 这个函数内部用到了id选择器，所以其实你可以不用该函数，而直接使用“html锚点”来控制跳转。
     jumpToAnchor (id) {
       let element = document.getElementById(id)
       if (element) {
@@ -120,6 +120,8 @@ export default {
 | indent | String | 子级目录的缩进，默认值: '2rem' |
 
 如果你需要展开/折叠子级目录，你可以调用组件的showChildren和hideChildren方法，在dom元素中加入ref="tree"，然后就可以this.$refs.tree.showChildren(id)即可，id为目录数据节点的唯一标识。
+
+
 
 
 你可以从github上clone本项目运行查看demo效果：
