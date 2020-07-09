@@ -2,7 +2,7 @@
   <div class="article">
 
     <div ref="article">
-      本文为测试导航生成文章，内容摘自<a href="http://wintc.top/article/8">木马.tc个人博客</a>
+      本文为测试导航生成文章，内容摘自我的个人博客（<a href="http://wintc.top/article/8">木马小站</a>）
       <p>
         对于＂数组遍历＂这个问题，其实答案很宽泛，关键在于你能不能列举出一定数量的方法以及描述它们之间的区别。本文即介绍一下数组的基本遍历操作和高阶函数。
       </p>

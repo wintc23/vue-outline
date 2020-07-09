@@ -1,15 +1,5 @@
 <template>
   <div class="example">
-    <div
-      v-outline="{
-        callback: refreshNavTree,
-        selectors: ['h2', 'h3', 'h4'],
-        exceptSelector: '[un-nav]'
-      }" class="content">
-      <div ref="editor">
-        <TestArticle></TestArticle>
-      </div>
-    </div>
     <div class="navigation">
       <div class="title">导航目录</div>
       <outline-tree :treeData="navTree" class="tree">
@@ -21,6 +11,16 @@
           </div>
         </div>
       </outline-tree>
+    </div>
+    <div
+      v-outline="{
+        callback: refreshNavTree,
+        selectors: ['h2', 'h3', 'h4'],
+        exceptSelector: '[un-nav]'
+      }" class="content">
+      <div ref="editor">
+        <TestArticle></TestArticle>
+      </div>
     </div>
   </div>
 </template>
